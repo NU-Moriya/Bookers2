@@ -1,0 +1,37 @@
+<% if @book.errors.any? %>
+    <ul>
+      <% @book.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+      <%= alert %>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<!-- each メソッドで以下をローカル変数で作る-->
+<div class="row">
+  
+  <div class="col-xs-3">
+    <h2>User info</h2>
+    <img class="attachment user profile_image" src="//e" alt="Profile image"><table class="table">
+      <tbody><tr></tr> 
+      <tr>
+    	  <th>name</th>
+    	</tr>
+      <tr>
+    	  <th>introduction</th>
+    	  <th></th>
+      </tr>
+</tbody></table>
+
+
+<!--ここからform_withでnew_bookのcreate bookを作る-->
+  <h2>New book</h2>
+  <%= form_with model:@book, local:true do |f| %>
+  <h3>Title</h3>
+  <%= f.text_field :title %>
+  <h3>Opinion</h3>
+  <%= f.text_area :body %>
+  <%= f.submit "Create Book" %>
+  <% end %>
+  
