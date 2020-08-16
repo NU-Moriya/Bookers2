@@ -1,3 +1,8 @@
+ <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+  <% end %>
 <!-- 部分テンプレートの読み込み→プロフィール画像の表示、editへのリンク、Newbook機能　-->
 <%= render 'users/show', user: @users, book: @book %>
 

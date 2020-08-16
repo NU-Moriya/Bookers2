@@ -1,3 +1,14 @@
+<% if @user.errors.any? %>
+  <div id="error_explanation" class="alert alert-danger">
+    <ul>
+      <% @user.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+      <%= alert %>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <h1>User info</h1>
 <%= form_with model:@user, local:true do |f| %>
   <h2>Name</h2>
@@ -7,5 +18,5 @@
   <h2>Introdution</h2>
   <%= f.text_area :introduction %>
   <%= f.submit "Update User" %>
-  <% end %>
+<% end %>
   
