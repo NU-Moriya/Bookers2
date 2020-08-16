@@ -1,9 +1,7 @@
 class RootController < ApplicationController
   def top
   end
-
-#about page 作る
-
-　def about
-　end
+  
+  def about
+  end 
 end
