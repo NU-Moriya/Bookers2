@@ -11,7 +11,7 @@
       <% @allbooks.each do |book| %>
       <tr>
       <td><%= link_to attachment_image_tag(book.user, :profile_image, size:"100x100") %></td>
-      <td><%= link_to book.title, book_path(book.user) %></td>
+      <td><%= link_to book.title, book_path(book.id) %></td>
       <td><%= book.body %></td>
       </tr>
       <% end %>

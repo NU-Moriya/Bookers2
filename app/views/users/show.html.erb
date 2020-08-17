@@ -6,8 +6,6 @@
 <!-- 部分テンプレートの読み込み→プロフィール画像の表示、editへのリンク、Newbook機能　-->
 <%= render 'users/show', user: @users, book: @book %>
 
-<!-- いま、なんのページが必要か。→このページに必要な機能考えて→機能の優先順位を考える→　今やりたいことから何が足りていないのか逆算をすればスタートできる！！　
-　今何をやっているのかを見失わない、途中段階のミニ最終目標を見失わない-->
 <h2>Books</h2>
 <table>
   <thead>
@@ -18,10 +16,8 @@
   <tbody>
       <% @usersbooks.each do |book| %>
       <tr>
-      <td><%= book.title %></td>
+      <td><%= link_to book.title,book_path(book) %></td>
       <td><%= book.body %></td>
-      <td><%= link_to 'Edit', edit_book_path(book) %></td>
-      <td><%= link_to 'Destroy', book_path(book), method: :delete, "data-confirm" => "Are you sure？" %></td>
       </tr>
       <% end %>
   </tbody>

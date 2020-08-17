@@ -14,7 +14,13 @@ class BooksController < ApplicationController
       redirect_to user_path(current_user.id)
       flash[:notice] = "You have created book successfully"
     else
-      @books = Book.all
+     
+     # @book = Book.new
+     # この記述があるとエラー文が出てこなくなる。
+     @allbooks = Book.all
+      @user = current_user
+      @books = Book.new
+      #binding.pry
       flash[:alert] = "error"
       render("books/index")
     end
@@ -22,6 +28,8 @@ class BooksController < ApplicationController
   
   def show
     @book = Book.find(params[:id])
+    @users = @book.user
+    @usersbooks = @users.books
   end
   
   def edit
@@ -31,7 +39,7 @@ class BooksController < ApplicationController
   def update
     @book = Book.find(params[:id])
     if @book.update(book_params)
-    redirect_to #book show のパスを入れる　book_path(@book)
+    redirect_to book_path(@book)
     flash[:notice] = "You have updated successfully"
     else
     flash[:alert] = "error"
@@ -42,7 +50,7 @@ class BooksController < ApplicationController
   def destroy
     book = Book.find(params[:id])
     book.destroy
-    redirect_to # book_index のパスを入れる　books_path
+    redirect_to books_path
     flash[:notice] = "You have deleted successfully"
   end
   
