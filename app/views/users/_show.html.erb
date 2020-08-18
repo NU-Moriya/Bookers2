@@ -9,30 +9,30 @@
 <% end %>
 
 <!-- each メソッドで以下をローカル変数で作る-->
-<div class="row">
-  <h2>User info</h2>
-    <%= attachment_image_tag user, :profile_image, size:"100x100" %>
-    <table>
-      <tbody>
-      <tr>
-    	  <th>name</th><th><%= user.name %></th>
-    	</tr>
-      <tr>
-    	  <th>introduction</th><th><%= user.introduction %></th>
-      </tr>
-     </tbody>
-   </table>
-   <%= link_to 'edit', edit_user_path(user.id)%>
-  </div>
+    <div class="col-xs-3">
+      <h2>User info</h2>
+        <%= attachment_image_tag user, :profile_image, size:"100x100" %>
+        <table>
+          <tbody>
+          <tr>
+        	  <th>name</th><th><%= user.name %></th>
+        	</tr>
+          <tr>
+        	  <th>introduction</th><th><%= user.introduction %></th>
+          </tr>
+         </tbody>
+       </table>
+       <%= link_to 'edit', edit_user_path(user.id)%>
+    
 
 
 <!--ここからform_withでnew_bookのcreate bookを作る-->
-  <h2>New book</h2>
-  <%= form_with model:@books, local:true do |f| %>
-  <h3>Title</h3>
-  <%= f.text_field :title %>
-  <h3>Opinion</h3>
-  <%= f.text_area :body %>
-  <%= f.submit "Create Book" %>
-  <% end %>
-  
+    <h2>New book</h2>
+    <%= form_with model:@books, local:true do |f| %>
+      <h3>Title</h3>
+       <%= f.text_field :title %>
+      <h3>Opinion</h3>
+       <%= f.text_area :body %>
+       <%= f.submit "Create Book" %>
+    <% end %>
+  </div>
