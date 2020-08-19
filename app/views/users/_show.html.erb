@@ -9,10 +9,10 @@
 <% end %>
 
 <!-- each メソッドで以下をローカル変数で作る-->
-    <div class="col-xs-3">
+    <div class="col-md-3 mt-40">
       <h2>User info</h2>
-        <%= attachment_image_tag user, :profile_image, size:"100x100" %>
-        <table>
+        <%= attachment_image_tag user, :profile_image, size: "100x100", fallback: "noimage.png" %>
+        <table class="table">
           <tbody>
           <tr>
         	  <th>name</th><th><%= user.name %></th>
@@ -21,8 +21,14 @@
         	  <th>introduction</th><th><%= user.introduction %></th>
           </tr>
          </tbody>
-       </table>
-       <%= link_to 'edit', edit_user_path(user.id)%>
+        </table>
+        <div class="row">
+          <button class="col-md-12 btn btn-outline-secondary mt-3 mb-2">
+        <%= link_to edit_user_path(user.id) do %>
+          <i class="fas fa-wrench"></i>
+        <% end %>
+          </button>
+        </div>
     
 
 
@@ -33,6 +39,6 @@
        <%= f.text_field :title %>
       <h3>Opinion</h3>
        <%= f.text_area :body %>
-       <%= f.submit "Create Book" %>
+       <%= f.submit "Create Book", class:"btn btn-primary btn-lg btn-block" %>
     <% end %>
   </div>
