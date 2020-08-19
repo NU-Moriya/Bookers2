@@ -1,19 +1,26 @@
-<%= render 'users/show', user: @user, book: @book %>
-
-<h2 class="books-index-title">Books</h2>
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th><th>Title</th><th>Opinion</th>
-    </tr>
-  </thead>
-  <tbody>
-      <% @allbooks.each do |book| %>
-      <tr>
-      <td><%= link_to attachment_image_tag(book.user, :profile_image, size:"100x100") %></td>
-      <td><%= link_to book.title, book_path(book.id) %></td>
-      <td><%= book.body %></td>
-      </tr>
-      <% end %>
-  </tbody>
-</table>
+<div class="container">
+  <div class="row">
+    <%= render 'users/show', user: @user, book: @book %>
+    <div class="col-md-9 mt-40">
+      <h2>Books</h2>
+      <table class="table table-hover table-invers">
+        <thead>
+          <tr>
+            <th colspan=""></th>
+            <th>Title</th>
+            <th>Opinion</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @allbooks.each do |book| %>
+            <tr>
+              <td><%= link_to attachment_image_tag(book.user, :profile_image, size: "50x50",fallback: "noimage.png") %></td>
+              <td><%= link_to book.title, book_path(book.id) %></td>
+              <td><%= book.body %></td>
+            </tr>
+            <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
