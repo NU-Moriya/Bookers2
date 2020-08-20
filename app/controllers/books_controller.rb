@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
-  
+   before_action :authenticate_user!
+   
   def index
     @allbooks = Book.all
     @book = Book.new
@@ -34,6 +35,7 @@ class BooksController < ApplicationController
   
   def edit
     @book = Book.find(params[:id])
+    
   end
   
   def update

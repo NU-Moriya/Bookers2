@@ -8,8 +8,8 @@ class ApplicationController < ActionController::Base
   end
   
   def after_sign_up_path_for(resource)
-    user_path(resource)
     flash[:notice] = "you have signed up successfully" 
+    user_path(resource)
   end
   
   before_action :configure_permitted_parameters, if: :devise_controller?
