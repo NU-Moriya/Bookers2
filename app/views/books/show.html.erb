@@ -1,8 +1,8 @@
 <div class="container">
   <% if flash[:notice] %>
-  <div class="flash">
-  <p><%= flash[:notice] %></p>
-  </div>
+    <div class="flash">
+      <p><%= flash[:notice] %></p>
+    </div>
   <% end %>
   <div class="row">
     <%= render 'users/show', user: @users, book: @book %>
