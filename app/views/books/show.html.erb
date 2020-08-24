@@ -1,7 +1,7 @@
 <div class="container">
   <% if flash[:notice] %>
   <div class="flash">
-    <%= flash[:notice] %>
+  <p><%= flash[:notice] %></p>
   </div>
   <% end %>
   <div class="row">
@@ -11,7 +11,7 @@
     <table class="table table-hover table-invers">
       <tbody>
           <tr>
-            <td><%= link_to attachment_image_tag(@users, :profile_image, size:"50x50") %><br>
+            <td><%= link_to attachment_image_tag @users, :profile_image, size:"50x50", fallback: "noimage.png" %><br>
               <%= link_to @users.name, user_path(@users.id) %>
             </td>
             <td><%= link_to @book.title, book_path(@book.id) %></td>

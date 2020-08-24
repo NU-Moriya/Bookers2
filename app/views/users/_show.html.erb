@@ -24,7 +24,7 @@
     </table>
     <div class="row">
       <%= link_to edit_user_path(user.id) do %>
-        <button class="btn btn-outline-secondary btn-block mt-3 mb-2">
+        <button class="btn btn-outline-secondary btn-block mt-3 mb-2 col-xs-12">
         <i class="fas fa-wrench"></i>
         </button>
       <% end %>
@@ -36,6 +36,6 @@
       <%= f.text_field :title %>
     <h3>Opinion</h3>
       <%= f.text_area :body %>
-      <%= f.submit "Create Book", class:"btn btn-primary btn-lg btn-block" %>
+      <%= f.submit "Create Book", class:"btn btn-primary btn-lg btn-block col-xs-12" %>
   <% end %>
 </div>
