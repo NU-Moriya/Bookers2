@@ -1,27 +1,26 @@
 <% if flash[:notice] %>
-      <div class="flash">
-      <p><%= flash[:notice] %></p
-      </div>
+  <div class="flash">
+    <p><%= flash[:notice] %></p>
+  </div>
 <% end %>
 <div class="container">
   <div class="row">
     <div class="offset-md-3 col-md-6 mt-30">
       <h1>welcome to <i class="fas fa-book"></i>Bookers &emsp; !!</h1>
-      <p>In <i class="fas fa-book"></i>Bookers<br>
-      you can share and exchange your opinions , impressions , and emotions<br>
-      about various books!
-      </p>
+      <p>In <i class="fas fa-book"></i>Bookers</p>
+      <p>you can share and exchange your opinions , impressions , and emotions</p>
+      <p>about various books!</p>
+      
       <div class= "btn-wrapper">
-        <div class="row">
-          <div class="col-md-10 offset-md-1 login-btn">
-        <%= link_to 'Log in', new_user_session_path, class:"btn btn-info btn-lg btn-block" %><br>
-          </div>
-        
-          <div class="col-md-10 offset-md-1">
-        <%= link_to 'Sign Up', new_user_registration_path, class:"btn btn-success btn-lg btn-block" %>
-          </div>
+        <div class="col-md-10 offset-md-1">
+          <p><%= link_to 'Log in', new_user_session_path, class:"btn btn-info btn-block" %></p>
+        </div>
+        <div class="col-md-10 offset-md-1">
+          <p><%= link_to 'Sign Up', new_user_registration_path, class:"btn btn-success btn-block" %></p>
         </div>
       </div>
     </div>
   </div> 
 </div>
+
+			
